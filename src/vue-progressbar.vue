@@ -24,7 +24,7 @@ export default {
                 'position': options.position
             }
             if (location === 'top' || location === 'bottom') {
-                location === 'top' ? style.top = '0px' : style.bottom = '0px'
+                location === 'top' ? style.top = '1.2rem' : style.bottom = '0px'
                 if (!options.inverse) {
                     style.left = '0px'
                 } else {
