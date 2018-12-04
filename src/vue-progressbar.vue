@@ -18,27 +18,31 @@ export default {
             const options = progress.options
             const isShow = !!options.show
             const location = options.location
+            const top = options.top ? options.top:'0px';
+            const left = options.left ? options.left:'0px';
+            const bottom = options.bottom ? options.bottom:'0px';
+            const right = options.right ? options.right:'0px';
             const style = {
                 'background-color': options.canSuccess ? options.color : options.failedColor,
                 'opacity': options.show ? 1 : 0,
                 'position': options.position
             }
             if (location === 'top' || location === 'bottom') {
-                location === 'top' ? style.top = '1.2rem' : style.bottom = '0px'
+                location === 'top' ? style.top = top : style.bottom = bottom
                 if (!options.inverse) {
-                    style.left = '0px'
+                    style.left = left
                 } else {
-                    style.right = '0px'
+                    style.right = right
                 }
                 style.width = progress.percent + '%'
                 style.height = options.thickness
                 style.transition = (isShow ? "width " + options.transition.speed + ", " : "") + "opacity " + options.transition.opacity
             } else if (location === 'left' || location === 'right') {
-                location === 'left' ? style.left = '0px' : style.right = '0px'
+                location === 'left' ? style.left = left : style.right = right
                 if (!options.inverse) {
-                    style.bottom = '0px'
+                    style.bottom = bottom
                 } else {
-                    style.top = '0px'
+                    style.top = top
                 }
                 style.height = progress.percent + '%'
                 style.width = options.thickness
